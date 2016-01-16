@@ -159,8 +159,8 @@ void SetupHardware(void)
 	USB_Init();
 
 	/* Reset-line initialization */
-	DDRD |= (1<<7);
-	PORTD |= (1<<7);
+	ON_DTR_RESET_PORTCONF |= ON_DTR_RESET_PINMASK;
+	ON_DTR_RESET_PORT     |= ON_DTR_RESET_PINMASK;
 }
 
 /** Event handler for the library USB Connection event. */
@@ -265,8 +265,8 @@ void EVENT_CDC_Device_ControLineStateChanged(USB_ClassInfo_CDC_Device_t* const C
 	bool CurrentDTRState = (CDCInterfaceInfo->State.ControlLineStates.HostToDevice & CDC_CONTROL_LINE_OUT_DTR);
 
 	if (CurrentDTRState)
-	  PORTD &= ~(1 << 7);
+	  ON_DTR_RESET_PORT &= ~ON_DTR_RESET_PINMASK;
 	else
-	  PORTD |= (1 << 7);
+	  ON_DTR_RESET_PORT |= ON_DTR_RESET_PINMASK;
 }
 
