@@ -157,6 +157,10 @@ void SetupHardware(void)
 	/* Hardware Initialization */
 	LEDs_Init();
 	USB_Init();
+
+	/* Reset-line initialization */
+	DDRD |= (1<<7);
+	PORTD |= (1<<7);
 }
 
 /** Event handler for the library USB Connection event. */
