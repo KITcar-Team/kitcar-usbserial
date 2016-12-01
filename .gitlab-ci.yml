@@ -1,0 +1,17 @@
+image: ubuntu:16.04
+
+before_script:
+  - apt-get update -y
+  - apt-get install wget make gcc-avr avr-libc unzip -y
+
+
+build-image:
+  stage: build
+  script:
+    - getlufa.sh
+    - make
+  artifacts:
+    paths:
+      - kitcar-usbserial.hex
+    expire_in: 6 mo
+
