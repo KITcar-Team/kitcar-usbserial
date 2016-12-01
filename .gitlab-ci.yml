@@ -8,7 +8,7 @@ before_script:
 build-image:
   stage: build
   script:
-    - getlufa.sh
+    - ./getlufa.sh
     - make
   artifacts:
     paths:
