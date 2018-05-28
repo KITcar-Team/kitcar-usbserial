@@ -1,4 +1,4 @@
-# Arduino Uno or Meag2560 firmware for Atmega16U2 (USB-Serail-Converter)
+# Arduino Uno or Meag2560 firmware for Atmega16U2 (USB-Serial-Converter)
 
 The Arduino Uno and the Arduino Mega2560 are bot using an Atmega16U2 as an USB
 to serial converter. The default firmware of this microcontroller causes
